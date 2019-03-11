@@ -31,7 +31,7 @@
 #define ScreenHeight                             ScreenFrame.size.height
 #define ScreenWidth                              ScreenFrame.size.width
 //与最小屏的比率
-#define ScreenRate CScreenWidth/320
+#define ScreenRate ScreenWidth/320
 //导航栏高度
 #define ScreenNaviBarHeight  44.0f
 //tabbar高度
@@ -41,9 +41,35 @@
 //减去状态栏和导航栏的高度
 #define ScreenHeightNoStatusAndNoNaviBar       (ScreenHeight - ScreenStatusBarHeight-ScreenNaviBarHeight)
 /// 底部安全区域
-#define ScreenBottomHeight ((ScreenHeight == 812.0) ? 34 : 0)
+#define ScreenBottomHeight (isIphoneX ? 34 : 0)
 //减去状态栏和底部菜单栏高度
 #define ScreenHeightNoTopAndNoTabBar       (ScreenHeight - ScreenTopHeight-ScreenTababarHeight)
+
+
+//判断iphoneX 以上系列
+#define isIphoneX ({\
+int tmp = 0;\
+if (@available(iOS 11.0, *)) {\
+if (!UIEdgeInsetsEqualToEdgeInsets([UIApplication sharedApplication].delegate.window.safeAreaInsets, UIEdgeInsetsZero)) {\
+tmp = 1;\
+}else{\
+tmp = 0;\
+}\
+}else{\
+tmp = 0;\
+}\
+tmp;\
+})
+
+#define IPHONE_X \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
+
+
 
 /**
  导航栏的frame和高度

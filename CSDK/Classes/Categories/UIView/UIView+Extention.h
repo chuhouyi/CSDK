@@ -95,5 +95,41 @@
 -(void)addTapGestureTarget:(id)target selector:(SEL)selector;
 
 
-
 @end
+
+
+#pragma mark - UIview + UIViewController
+
+@interface UIView (UIViewController)
+- (UIViewController *)viewController;
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,6 +30,14 @@
  @return image
  */
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+
+/**
+ *  实现图片的缩小或者放大
+ *
+ *  @param size  大小范围
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaledToSize:(CGSize)newSize;
 
 

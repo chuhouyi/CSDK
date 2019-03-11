@@ -84,6 +84,15 @@
     return image;
 }
 
+-(UIImage*)scaleImageWithSize:(CGSize)size
+{
+    UIGraphicsBeginImageContextWithOptions(size,NO,0);  //size 为CGSize类型，即你所需要的图片尺寸
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage * scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;   //返回的就是已经改变的图片
+}
+
 
 
 /**

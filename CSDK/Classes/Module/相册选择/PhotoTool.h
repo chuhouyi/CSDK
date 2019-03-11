@@ -17,7 +17,7 @@ typedef void(^Block)(NSString * str);
  */
 -(void)getAllPhotosCompletion:(void(^)(NSArray *))completion;
 
--(void)getAllAblums
+-(void)getAllAblums;
 
 
 
